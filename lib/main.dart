@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const UsakKeşifApp());
+  runApp(const UsakKesifApp());
 }
 
-class UsakKeşifApp extends StatelessWidget {
-  const UsakKeşifApp({super.key});
+class UsakKesifApp extends StatelessWidget {
+  const UsakKesifApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Uşak Keşif',
+      title: 'Usak Kesif',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.pinkAccent),
         useMaterial3: true,
@@ -21,7 +21,6 @@ class UsakKeşifApp extends StatelessWidget {
   }
 }
 
-// --- VERİ MODELLERİ & MERKEZİ HAFIZA ---
 class ProfilModel {
   String id;
   String isim;
@@ -47,27 +46,26 @@ class SohbetMesaj {
 }
 
 class UygulamaVeritabani {
-  static String aktifKullaniciAdi = 'Oğuz';
+  static String aktifKullaniciAdi = 'Oguz';
   
   static List<ProfilModel> kesifProfilleri = [
-    ProfilModel(id: '1', isim: 'Zeynep', yas: 24, semt: 'Atatürk Mah.', bio: 'Uşak merkezde yaşıyorum, kahve ve yürüyüş severim.', resimUrl: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500'),
-    ProfilModel(id: '2', isim: 'Merve', yas: 23, semt: 'İsmetpaşa Cad.', bio: 'Üniversite öğrencisiyim, yeni insanlarla tanışmak harika olur.', resimUrl: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=500'),
-    ProfilModel(id: '3', isim: 'Emre', yas: 26, semt: 'Fatih Mah.', bio: 'Kuryelik yapıyorum, motosiklet ve kamp tutkunuyum.', resimUrl: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=500'),
+    ProfilModel(id: '1', isim: 'Zeynep', yas: 24, semt: 'Ataturk Mah.', bio: 'Usak merkezde yasiyorum, kahve ve yuruyus severim.', resimUrl: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500'),
+    ProfilModel(id: '2', isim: 'Merve', yas: 23, semt: 'Ismetpasa Cad.', bio: 'Universite ogrencisiyim, yeni insanlarla tanismak harika olur.', resimUrl: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=500'),
+    ProfilModel(id: '3', isim: 'Emre', yas: 26, semt: 'Fatih Mah.', bio: 'Kuryelik yapiyorum, motosiklet ve kamp tutkunuyum.', resimUrl: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=500'),
   ];
 
   static List<ProfilModel> eslesmeler = [];
   static Map<String, List<SohbetMesaj>> sohbetler = {};
 }
 
-// --- 1. GİRİŞ EKRANI ---
 class GirisEkrani extends StatefulWidget {
   const GirisEkrani({super.key});
 
   @override
-  State<GrisEkrani> createState() => _GirisEkraniState();
+  State<GirisEkrani> createState() => _GirisEkraniState();
 }
 
-class _GirisEkraniState extends State<GrisEkrani> {
+class _GirisEkraniState extends State<GirisEkrani> {
   final adController = TextEditingController(text: UygulamaVeritabani.aktifKullaniciAdi);
 
   void girisYap() {
@@ -104,14 +102,14 @@ class _GirisEkraniState extends State<GrisEkrani> {
                   children: [
                     const Icon(Icons.local_fire_department, size: 72, color: Colors.pinkAccent),
                     const SizedBox(height: 12),
-                    const Text('Uşak Keşif', style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold)),
+                    const Text('Usak Kesif', style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold)),
                     const SizedBox(height: 6),
-                    const Text('Uşak\'ın yeni nesil buluşma noktası', style: TextStyle(color: Colors.grey), textAlign: TextAlign.center),
+                    const Text('Usak\'in yeni nesil bulusma noktasi', style: TextStyle(color: Colors.grey), textAlign: TextAlign.center),
                     const SizedBox(height: 24),
                     TextField(
                       controller: adController,
                       decoration: const InputDecoration(
-                        labelText: 'Adınız',
+                        labelText: 'Adiniz',
                         border: OutlineInputBorder(),
                         prefixIcon: Icon(Icons.person),
                       ),
@@ -127,7 +125,7 @@ class _GirisEkraniState extends State<GrisEkrani> {
                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                         ),
                         onPressed: girisYap,
-                        child: const Text('Keşfetmeye Başla', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+                        child: const Text('Kesfetmeye Basla', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
                       ),
                     ),
                   ],
@@ -141,7 +139,6 @@ class _GirisEkraniState extends State<GrisEkrani> {
   }
 }
 
-// --- 2. ANA PANEL & SEKMELER ---
 class AnaPanel extends StatefulWidget {
   const AnaPanel({super.key});
 
@@ -168,8 +165,8 @@ class _AnaPanelState extends State<AnaPanel> {
         unselectedItemColor: Colors.grey,
         onTap: (index) => setState(() => _seciliSekme = index),
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.local_fire_department), label: 'Keşfet'),
-          BottomNavigationBarItem(icon: Icon(Icons.chat_bubble), label: 'Eşleşmeler'),
+          BottomNavigationBarItem(icon: Icon(Icons.local_fire_department), label: 'Kesfet'),
+          BottomNavigationBarItem(icon: Icon(Icons.chat_bubble), label: 'Eslenmeler'),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profilim'),
         ],
       ),
@@ -177,7 +174,6 @@ class _AnaPanelState extends State<AnaPanel> {
   }
 }
 
-// --- 3. KEŞİF EKRANI ---
 class KesifEkrani extends StatefulWidget {
   const KesifEkrani({super.key});
 
@@ -192,22 +188,22 @@ class _KesifEkraniState extends State<KesifEkrani> {
     setState(() {
       UygulamaVeritabani.eslesmeler.add(profil);
       UygulamaVeritabani.sohbetler[profil.id] = [
-        SohbetMesaj(gonderen: profil.isim, icerik: 'Selam! Uşak\'ta eşleştik 🎉')
+        SohbetMesaj(gonderen: profil.isim, icerik: 'Selam! Usak\'ta eslestik 🎉')
       ];
     });
 
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('Eşleşme Oldu! 🎉', textAlign: TextAlign.center),
+        title: const Text('Eslenme Oldu! 🎉', textAlign: TextAlign.center),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             CircleAvatar(radius: 40, backgroundImage: NetworkImage(profil.resimUrl)),
             const SizedBox(height: 12),
-            Text('${profil.isim} ile eşleştiniz!', style: const TextStyle(fontWeight: FontWeight.bold)),
+            Text('${profil.isim} ile eslestiniz!', style: const TextStyle(fontWeight: FontWeight.bold)),
             const SizedBox(height: 6),
-            const Text('Hemen sohbet etmeye başlayabilirsin.'),
+            const Text('Hemen sohbet etmeye baslayabilirsin.'),
           ],
         ),
         actions: [
@@ -248,7 +244,7 @@ class _KesifEkraniState extends State<KesifEkrani> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Uşak Keşif', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.pinkAccent)),
+        title: const Text('Usak Kesif', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.pinkAccent)),
         centerTitle: true,
       ),
       body: bitti
@@ -258,7 +254,7 @@ class _KesifEkraniState extends State<KesifEkrani> {
                 children: [
                   Icon(Icons.check_circle_outline, size: 80, color: Colors.grey),
                   SizedBox(height: 16),
-                  Text('Uşak\'ta başka profil kalmadı!', style: TextStyle(fontSize: 18, color: Colors.grey)),
+                  Text('Usak\'ta baska profil kalmadi!', style: TextStyle(fontSize: 18, color: Colors.grey)),
                   Text('Daha sonra tekrar kontrol et.', style: TextStyle(color: Colors.black54)),
                 ],
               ),
@@ -344,16 +340,15 @@ class _KesifEkraniState extends State<KesifEkrani> {
   }
 }
 
-// --- 4. EŞLEŞMELER & SOHBET LİSTESİ ---
 class EslenmelerEkrani extends StatelessWidget {
   const EslenmelerEkrani({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Eşleşmeler & Sohbetler')),
+      appBar: AppBar(title: const Text('Eslenmeler & Sohbetler')),
       body: UygulamaVeritabani.eslesmeler.isEmpty
-          ? const Center(child: Text('Henüz bir eşleşmen yok. Keşfetmeye başla!'))
+          ? const Center(child: Text('Henuz bir eslesmen yok. Kesfetmeye basla!'))
           : ListView.builder(
               itemCount: UygulamaVeritabani.eslesmeler.length,
               itemBuilder: (context, index) {
@@ -361,7 +356,7 @@ class EslenmelerEkrani extends StatelessWidget {
                 return ListTile(
                   leading: CircleAvatar(backgroundImage: NetworkImage(profil.resimUrl), radius: 28),
                   title: Text(profil.isim, style: const TextStyle(fontWeight: FontWeight.bold)),
-                  subtitle: const Text('Sohbet başlatmak için dokun...'),
+                  subtitle: const Text('Sohbet baslatmak icin dokun...'),
                   trailing: const Icon(Icons.chat, color: Colors.pinkAccent),
                   onTap: () {
                     Navigator.push(
@@ -376,7 +371,6 @@ class EslenmelerEkrani extends StatelessWidget {
   }
 }
 
-// --- 5. ÖZEL SOHBET EKRANI ---
 class SohbetDetayEkrani extends StatefulWidget {
   final ProfilModel profil;
   const SohbetDetayEkrani({super.key, required this.profil});
@@ -461,7 +455,6 @@ class _SohbetDetayEkraniState extends State<SohbetDetayEkrani> {
   }
 }
 
-// --- 6. PROFİLİM EKRANI ---
 class ProfilEkrani extends StatelessWidget {
   const ProfilEkrani({super.key});
 
@@ -481,7 +474,7 @@ class ProfilEkrani extends StatelessWidget {
               ),
               const SizedBox(height: 16),
               Text(UygulamaVeritabani.aktifKullaniciAdi, style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
-              const Text('Uşak Merkez', style: TextStyle(color: Colors.grey)),
+              const Text('Usak Merkez', style: TextStyle(color: Colors.grey)),
               const SizedBox(height: 24),
               Card(
                 child: Padding(
@@ -490,7 +483,7 @@ class ProfilEkrani extends StatelessWidget {
                     children: const [
                       ListTile(leading: Icon(Icons.verified, color: Colors.pinkAccent), title: Text('Hesap Durumu'), trailing: Text('Aktif')),
                       Divider(),
-                      ListTile(leading: Icon(Icons.location_city, color: Colors.pinkAccent), title: Text('Konum'), trailing: Text('Uşak')),
+                      ListTile(leading: Icon(Icons.location_city, color: Colors.pinkAccent), title: Text('Konum'), trailing: Text('Usak')),
                     ],
                   ),
                 ),
