@@ -1,8 +1,10 @@
-hername: Usak Kesif APK Build
+name: Usak Kesif APK Build
+
 on:
   push:
     branches:
       - main
+
 jobs:
   build:
     runs-on: ubuntu-latest
