@@ -49,7 +49,6 @@ class SohbetMesaj {
 class UygulamaVeritabani {
   static String aktifKullaniciAdi = 'Oğuz';
   
-  // Uşak'taki keşfedilmeyi bekleyen örnek profiller
   static List<ProfilModel> kesifProfilleri = [
     ProfilModel(id: '1', isim: 'Zeynep', yas: 24, semt: 'Atatürk Mah.', bio: 'Uşak merkezde yaşıyorum, kahve ve yürüyüş severim.', resimUrl: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500'),
     ProfilModel(id: '2', isim: 'Merve', yas: 23, semt: 'İsmetpaşa Cad.', bio: 'Üniversite öğrencisiyim, yeni insanlarla tanışmak harika olur.', resimUrl: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=500'),
@@ -65,10 +64,10 @@ class GirisEkrani extends StatefulWidget {
   const GirisEkrani({super.key});
 
   @override
-  State<GirisEkrani> createState() => _GirisEkraniState();
+  State<GrisEkrani> createState() => _GirisEkraniState();
 }
 
-class _GirisEkraniState extends State<GirisEkrani> {
+class _GirisEkraniState extends State<GrisEkrani> {
   final adController = TextEditingController(text: UygulamaVeritabani.aktifKullaniciAdi);
 
   void girisYap() {
@@ -100,7 +99,7 @@ class _GirisEkraniState extends State<GirisEkrani> {
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
               child: Padding(
                 padding: const EdgeInsets.all(24.0),
-                call: Column(
+                child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     const Icon(Icons.local_fire_department, size: 72, color: Colors.pinkAccent),
@@ -178,7 +177,7 @@ class _AnaPanelState extends State<AnaPanel> {
   }
 }
 
-// --- 3. KEŞİF EKRANI (TİNDER KARTLARI) ---
+// --- 3. KEŞİF EKRANI ---
 class KesifEkrani extends StatefulWidget {
   const KesifEkrani({super.key});
 
@@ -197,7 +196,6 @@ class _KesifEkraniState extends State<KesifEkrani> {
       ];
     });
 
-    // Eşleşme Bildirimi (Pop-up)
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
